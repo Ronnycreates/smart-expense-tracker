@@ -7,9 +7,10 @@ from email.mime.multipart import MIMEMultipart
 app = Flask(__name__)
 CORS(app)
 
-# ⚠️ You'll fill these in shortly
-SENDER_EMAIL = "akashahrohit@gmail.com"
-SENDER_PASSWORD = "ajvsw luad cqeg cxma"
+
+import os
+SENDER_EMAIL = os.environ.get("SENDER_EMAIL", "susundrerohan@gmail.com")
+SENDER_PASSWORD = os.environ.get("SENDER_PASSWORD", "ojka qzrl wplj buqh")
 
 def send_email(to_email, name, total, budget):
     subject = "⚠️ Budget Alert - Smart Expense Tracker"
@@ -65,4 +66,4 @@ def check_budget():
     return jsonify({'alert': False, 'message': 'Budget is under control.'})
 
 if __name__ == '__main__':
-    app.run(port=5003, debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5001)))
