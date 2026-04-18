@@ -66,4 +66,4 @@ def check_budget():
     return jsonify({'alert': False, 'message': 'Budget is under control.'})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5001)))
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5003)))

@@ -57,4 +57,4 @@ def get_total(email):
     return jsonify({'total': total, 'expenses': user_expenses})
 
 if __name__ == '__main__':
-    app.run(port=5002, debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5002)))
